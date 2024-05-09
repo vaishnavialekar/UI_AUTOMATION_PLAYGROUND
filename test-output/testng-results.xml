@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-05-09T22:09:02 IST" name="Default suite" finished-at="2024-05-09T22:09:09 IST" duration-ms="7000">
+    <groups>
+    </groups>
+    <test started-at="2024-05-09T22:09:02 IST" name="Default test" finished-at="2024-05-09T22:09:09 IST" duration-ms="7000">
+      <class name="TestPages.TestOne">
+        <test-method is-config="true" signature="LaunchBrowser()[pri:0, instance:TestPages.TestOne@2fb3536e]" started-at="2024-05-09T22:09:02 IST" name="LaunchBrowser" finished-at="2024-05-09T22:09:06 IST" duration-ms="4604" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LaunchBrowser -->
+        <test-method signature="Test_URL_and_PageName()[pri:1, instance:TestPages.TestOne@2fb3536e]" started-at="2024-05-09T22:09:06 IST" name="Test_URL_and_PageName" finished-at="2024-05-09T22:09:06 IST" duration-ms="39" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_URL_and_PageName -->
+        <test-method signature="Test_stringVerification()[pri:2, instance:TestPages.TestOne@2fb3536e]" started-at="2024-05-09T22:09:06 IST" name="Test_stringVerification" finished-at="2024-05-09T22:09:06 IST" duration-ms="32" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_stringVerification -->
+        <test-method signature="Test_DynamicID_Verification()[pri:3, instance:TestPages.TestOne@2fb3536e]" started-at="2024-05-09T22:09:06 IST" name="Test_DynamicID_Verification" finished-at="2024-05-09T22:09:09 IST" duration-ms="2284" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test_DynamicID_Verification -->
+        <test-method is-config="true" signature="CloseBrowser()[pri:0, instance:TestPages.TestOne@2fb3536e]" started-at="2024-05-09T22:09:09 IST" name="CloseBrowser" finished-at="2024-05-09T22:09:09 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CloseBrowser -->
+      </class> <!-- TestPages.TestOne -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
