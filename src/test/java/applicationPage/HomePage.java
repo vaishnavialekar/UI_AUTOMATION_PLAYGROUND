@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -31,6 +32,7 @@ public class HomePage {
 	@FindBy (xpath="//button[contains(concat(' ', normalize-space(@class), ' '), ' btn-primary ')]") WebElement ClassAttributeButtonElement;
 	@FindBy (linkText="Load Delay") WebElement LoadDelayElement;
 	@FindBy (xpath = "button[@type='button']") WebElement LoadDelayButtonElement;
+	@FindBy(id="footer") WebElement FooterSection;
 
 	public String StringCapture_homePage() {
 
@@ -68,6 +70,12 @@ public class HomePage {
 			
 		LoadDelayButtonElement.click();
 		HomePageRedirection.click();
+		
+	}
+	
+	public void ScrolltoFooter() {
+		
+		new Actions(driver) .scrollToElement(FooterSection).perform();
 		
 	}
 	

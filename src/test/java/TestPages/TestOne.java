@@ -10,16 +10,13 @@ import basic.Utilities;
 
 public class TestOne extends Base {
 
-	
-	
-	
-	@Test(groups= {"auto"})
+	@Test(groups = { "auto" })
 	public void Test_URL_and_PageName() {
 
 		System.out.println("Running URL is : " + driver.getCurrentUrl());
 		System.out.println("Title of Page is " + driver.getTitle());
 		Assert.assertEquals(driver.getTitle(), "UI Test Automation Playground");
-		
+
 	}
 
 	@Test(priority = 2)
@@ -47,6 +44,7 @@ public class TestOne extends Base {
 		Assert.assertEquals(Text.ClassAttribute(), "Primary button pressed");
 
 	}
+
 	@Test(priority = 5)
 	public void Test_DelayedResponse() {
 
@@ -55,7 +53,12 @@ public class TestOne extends Base {
 		Text.DelayRespons();
 
 	}
-	
-	
+	@Test(priority = 6)
+	public void ScrollerTest() {
+		HomePage Text = new HomePage(driver);
+		Text.ScrolltoFooter();
+		
+		
+	}
 
 }
