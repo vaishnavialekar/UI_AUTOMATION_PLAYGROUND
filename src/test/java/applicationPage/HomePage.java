@@ -1,82 +1,110 @@
 package applicationPage;
 
 import java.time.Duration;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
-	 WebDriver driver;
-	 WebDriverWait wait;
-	
+	WebDriver driver;
+	WebDriverWait wait;
+
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
-		wait= new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		PageFactory.initElements(driver, this);
 
-
 	}
-	
-	@FindBy (xpath = "//div[@role='alert']/span") WebElement AlertText;
-	@FindBy(linkText ="Dynamic ID") WebElement DynamicIDElement;
-	@FindBy (linkText="Home") WebElement HomePageRedirection;
-	
-	@FindBy (linkText = "Class Attribute") WebElement  ClassAttributeElement;
-	@FindBy (xpath="//button[contains(concat(' ', normalize-space(@class), ' '), ' btn-primary ')]") WebElement ClassAttributeButtonElement;
-	@FindBy (linkText="Load Delay") WebElement LoadDelayElement;
-	@FindBy (xpath = "button[@type='button']") WebElement LoadDelayButtonElement;
+
+	@FindBy(xpath = "//div[@role='alert']/span")
+	WebElement AlertText;
+	@FindBy(linkText = "Dynamic ID")
+	WebElement DynamicIDElement;
+	@FindBy(linkText = "Home")
+	WebElement HomePageRedirection;
+
+	@FindBy(linkText = "Class Attribute")
+	WebElement ClassAttributeElement;
+	@FindBy(xpath = "//button[contains(concat(' ', normalize-space(@class), ' '), ' btn-primary ')]")
+	WebElement ClassAttributeButtonElement;
+	@FindBy(linkText = "Load Delay")
+	WebElement LoadDelayElement;
+	@FindBy(xpath = "button[@type='button']")
+	WebElement LoadDelayButtonElement;
+	@FindBy(id = "footer")
+	WebElement FooterSection;
 
 	public String StringCapture_homePage() {
 
-		String PurposeDisclaimer1 = AlertText.getText();		
-		return PurposeDisclaimer1;	
-}
-	
+		String PurposeDisclaimer1 = AlertText.getText();
+		return PurposeDisclaimer1;
+	}
+
 	public String DynamicID() {
-		
+
 		DynamicIDElement.click();
-		 String CurrentURL= driver.getCurrentUrl();
-		//driver.findElement(By.xpath("//button[@type='button']")).click();
-		 HomePageRedirection.click();
+		String CurrentURL = driver.getCurrentUrl();
+		// driver.findElement(By.xpath("//button[@type='button']")).click();
+		HomePageRedirection.click();
 		return CurrentURL;
 	}
-	
+
 	public String ClassAttribute() {
-		
+
 		ClassAttributeElement.click();
 		ClassAttributeButtonElement.click();
-		String AlertTEXT=  driver.switchTo().alert().getText();
-		
+		String AlertTEXT = driver.switchTo().alert().getText();
+
 		driver.switchTo().alert().accept();
-		
+
 		HomePageRedirection.click();
 		return AlertTEXT;
-		
+
 	}
-		
-	
-	
+
 	public void DelayRespons() {
-		
+
 		LoadDelayElement.click();
-			
+
 		LoadDelayButtonElement.click();
 		HomePageRedirection.click();
+
+	}
+
+	public void ScrolltoFooter() {
+
+		new Actions(driver).scrollToElement(FooterSection).perform();
+
+	}
+
+	public void CheckNavigationTests() {
+
+		DynamicIDElement.click();
+		driver.navigate().forward();
+		driver.navigate().back();
+		driver.navigate().refresh();
+
+	}
+	
+	public void windowHandling () {
+		driver.switchTo().newWindow(WindowType.TAB);
+		
+		Set<String> windows = driver.getWindowHandles();
+		Iterator<String> it = windows.iterator();
+		it.next();
+		driver.switchTo();
+		driver.get("https://www.javatpoint.com/");
 		
 	}
-	
-	}
-	
-	
-	
-	
-	
-	
-	
 
+}

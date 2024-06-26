@@ -3,13 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestPages.TestTwo_countLinks">
+      <class name="TestPages.TestOne">
         <methods>
+          <include name="Test_ClassAttribute"/>
+          <include name="Test_stringVerification"/>
+          <include name="Test_DynamicID_Verification"/>
           <include name="CloseBrowser"/>
-          <include name="BrokenLinks"/>
+          <include name="TestNavigations"/>
           <include name="LaunchBrowser"/>
+          <include name="Testwindows"/>
         </methods>
-      </class> <!-- TestPages.TestTwo_countLinks -->
+      </class> <!-- TestPages.TestOne -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
